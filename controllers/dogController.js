@@ -22,6 +22,15 @@ router.get('/dogs/new', (req, res) => {
 
 
 // UPDATE
+router.put('/dogs/:dogId', async (req, res) => {
+    try {
+        const updatedDog = await Dog.findByIdAndUpdate(req.params.dogId, req.body);
+    } catch (error) {
+        console.error('Error updating dog:', error);
+        return res.status(500).send('Internal Server Error');
+    }
+    res.redirect(`/dogs/${req.params.dogId}`);
+});
 
 
 // CREATE
@@ -38,6 +47,13 @@ router.post('/dogs', async (req, res) => {
 
 
 // EDIT
+router.get('/dogs/:dogId/edit', async (req, res) => {
+    const foundDog = await Dog.findById(req.params.dogId);
+    if (!foundDog) {
+        return res.status(404).send('Dog not found');
+    }
+    res.render('dogs/edit.ejs', {dog: foundDog});
+});
 
 
 // SHOW
