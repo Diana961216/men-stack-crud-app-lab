@@ -41,3 +41,7 @@ router.post('/dogs', async (req, res) => {
 
 
 // SHOW
+router.get('/dogs/:id', async (req, res) => {
+    const foundDog = await Dog.findById(req.params.id);
+    res.render('dogs/show.ejs', {dog: foundDog});
+});
