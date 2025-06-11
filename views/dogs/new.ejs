@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>New Dog</h1>
+    <form action="/dogs" method="POST">
+      <label for="name">Name:</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Dog name"
+        required
+      />
+
+      <label for="breed">Breed:</label>
+      <input type="text" id="breed" name="breed" placeholder="Breed" required />
+
+      <label for="favoriteToy">Favorite Toy:</label>
+      <input
+        type="string"
+        id="favoriteToy"
+        name="favoriteToy"
+        placeholder="Favorite Toy"
+        required
+      />
+
+      <button type="submit">Create Dog</button>
+    </form>
+  </body>
+</html>

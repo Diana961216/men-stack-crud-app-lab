@@ -5,11 +5,13 @@ const app = express();
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const morgan = require('morgan');
+const dogController = require('./controllers/dogController.js');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(morgan('dev'));
+app.use(dogController)
 
 mongoose.connect(process.env.MONGODB_URI)
 
@@ -21,7 +23,7 @@ const Dog = require('./models/dog.js');
 
 
 app.get('/', (req, res) => {
-  res.send('Welcome to the Dog API');
+  res.render('index.ejs');
 });
 
 
