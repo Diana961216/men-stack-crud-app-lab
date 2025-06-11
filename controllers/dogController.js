@@ -7,6 +7,10 @@ module.exports = router;
 //INDUCES
 
 // INDEX
+router.get('/dogs', async (req, res) => {
+    const allDogs = await Dog.find();
+    res.render('dogs/index.ejs', {dogs: allDogs});
+  });
 
 
 // NEW
@@ -21,6 +25,16 @@ router.get('/dogs/new', (req, res) => {
 
 
 // CREATE
+router.post('/dogs', async (req, res) => {
+    console.log(req.body);
+    try {
+        await Dog.create(req.body);
+    } catch (error) {
+        console.error('Error creating dog:', error);
+        return res.status(500).send('Internal Server Error');
+    }
+    res.redirect('/dogs');
+});
 
 
 // EDIT
