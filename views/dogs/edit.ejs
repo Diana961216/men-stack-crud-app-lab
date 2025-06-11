@@ -6,6 +6,7 @@
     <title>Edit Dog</title>
   </head>
   <body>
+    <a href="/dogs">Back to Home</a>
     <h1>Edit <%= dog.name %></h1>
     <form action="/dogs/<%= dog._id %>?_method=PUT" method="POST">
       <label for="name">Name:</label>

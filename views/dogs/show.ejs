@@ -9,6 +9,9 @@
     <h1><%= dog.name %></h1>
     <p><strong>Breed:</strong> <%= dog.breed %></p>
     <p><strong>Favorite Toy:</strong> <%= dog.favoriteToy%></p>
+    <form action="/dogs/<%= dog._id %>?_method=DELETE" method="POST">
+      <button type="submit">Delete Dog</button>
+    </form>
     <a href="/dogs">Back to all dogs</a>
     <a href="/dogs/<%= dog._id %>/edit">Edit Dog</a>
   </body>

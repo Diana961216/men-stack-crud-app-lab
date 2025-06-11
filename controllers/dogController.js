@@ -19,6 +19,10 @@ router.get('/dogs/new', (req, res) => {
 });
 
 // DELETE
+router.delete('/dogs/:dogId', async (req, res) => {
+    await Dog.findByIdAndDelete(req.params.dogId);
+    res.redirect('/dogs');
+});
 
 
 // UPDATE
